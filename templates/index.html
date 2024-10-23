@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Insta profile detection</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/styles.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h2 class="head">Fake Insta Profile Detection</h2>
+    <div class="container">
+        <form action="/main" class="box" id="predictionForm" method="post">
+            <div class="text-inp inp1">
+                <label for="#">User follower count: </label>
+                <input type="number" class="text" name="follower" placeholder="Ex: 100">
+            </div>
+            <div class="text-inp inp2">
+                <label for="#">User following count: </label>
+            <input type="number" class="text" name="following" placeholder="Ex: 100">
+            </div>
+            <div class="text-inp inp3">
+                <label for="#">User biography length: </label>
+            <input type="number" class="text" name="bio" placeholder="Ex: 50">
+            </div>
+            <div class="text-inp inp4">
+                <label for="#">User post count: </label>
+            <input type="number" class="text" name="media" placeholder="Ex: 20">
+            </div>
+            <div class="text-inp inp5">
+                <label for="#">User has Profile pic: yes or no</label>
+            <input type="text" class="text" name="profile" placeholder="Ex: yes or 1">
+            </div>
+            <div class="text-inp inp6">
+                <label for="#">Is user private: yes or no</label>
+            <input type="text" class="text" name="isprivate" placeholder="Ex: no or 0">
+            </div>
+            <div class="text-inp inp7">
+                <label for="#">Username digit count: </label>
+            <input type="number" class="text" name="usernamedig" placeholder="Ex: 3"> 
+            </div>
+            <div class="text-inp inp8">
+                <label for="#">Username length: </label>
+            <input type="number" class="text" name="usernamelen" placeholder="Ex: 11">
+            </div>
+        </form>
+        <div class="line"></div>
+        <div class="down">
+            <div class="btns">
+                <a href="#" class="submit" id="submit">Submit</a>
+                <a href="#" class="clear">Clear</a>
+            </div>
+            <div class="res">
+                {% if result=='Real' %}
+                <div class="part">
+                            <i class="fa-solid fa-circle-check real"></i>
+                            <div class="result"><p class="fakereal">Verified user</p></div>
+                </div>
+            {% endif %}
+
+            {% if result=='Fake' %}
+                <div class="part">
+                            <i class="fa-solid fa-circle-exclamation fake"></i>
+                            <div class="result"><p class="fakereal">Fake user </p></div>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <script src="{{url_for('static',filename='./functions/script.js')}}"></script>
+</body>
+</html>
